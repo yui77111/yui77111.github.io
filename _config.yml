@@ -1,34 +1,12 @@
-# Site settings
-title: YUI77111's Personal Website
-email: 
-description: Yui's Ideas & Blogs
-# > # this means to ignore newlines until "baseurl:"
-#   Write an awesome description for your new site here. You can edit this
-#   line in _config.yml. It will appear in your document head meta (for
-#   Google search results) and in your feed.xml site description.
+# Setup
+name:         Project or Site name (Architect Theme)
+tagline:      A responsive theme for your project on GitHub Pages
+baseurl:      ""
+locale:       "en"
 
-# baseurl: "" # the subpath of your site, e.g. /blog/
-# url: "http://yourdomain.com" # the base hostname & protocol for your site
-# twitter_username: jekyllrb
-github_username: Yui77111
-permalink: /:year/:month/:day/:title/
-# this is the url root of the view source link on the footer page.
-viewsourceroot: https://github.com/yui77111/yui77111.github.io/blob/master/
-# this is the url root of the create page link on the footer page.
-newsourceroot: https://github.com/yui77111/yui77111.github.io/new/master
-#########################################
-# for duoshuo.com commenting system, uncomment following line if you do not want to include duoshuo.com. 
-#duoshuo_shortname: yui77111
-#duoshuo_url: "http://yui77111.github.io"
-# disqus.com commenting system. please note that it is exclusive with duoshuo.com
-disqus_shortname: yui77111
-disqus_url: "http://yui77111.github.io"
-#########################################
+# Gems
+gems:
+  - jekyll-paginate
 
-# Build settings
+#Others
 markdown: kramdown
-
-# highlight
-# highlighter: pygments
-# highlighter: rouge
-# highlighter: false
