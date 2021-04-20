@@ -738,7 +738,7 @@ images: assets/images
 live2d:
   enable: true
   scriptFrom: local
-  pluginRootPath: live2dw/
+  pluginRootPath: live2d_models/
   pluginJsPath: lib/
   pluginModelPath: assets/
   tagMode: false
