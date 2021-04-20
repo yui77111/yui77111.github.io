@@ -1,0 +1,25 @@
+{
+  "name": "yui77111.github.io",
+  "version": "1.0.0",
+  "description": "> NexT is a high quality elegant [Jekyll](https://jekyllrb.com) theme ported from [Hexo NexT](https://github.com/iissnan/hexo-theme-next). It is crafted from scratch, with love.",
+  "main": "index.js",
+  "dependencies": {
+    "hexo-helper-live2d": "^3.1.1",
+    "live2d-widget-model-hijiki": "^1.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yui77111/yui77111.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yui77111/yui77111.github.io/issues"
+  },
+  "homepage": "https://github.com/yui77111/yui77111.github.io#readme"
+}
