@@ -744,7 +744,7 @@ live2d:
   tagMode: false
   debug: false
   model:
-    use: live2d-widget-model-haruto
+    use: live2d-widget-model-hijiki
   display:
     position: right
     width: 150
