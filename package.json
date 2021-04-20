@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "> NexT is a high quality elegant [Jekyll](https://jekyllrb.com) theme ported from [Hexo NexT](https://github.com/iissnan/hexo-theme-next). It is crafted from scratch, with love.",
   "main": "index.js",
-  "dependencies": {
-    "hexo-helper-live2d": "^3.1.1",
-    "live2d-widget-model-hijiki": "^1.0.5"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
