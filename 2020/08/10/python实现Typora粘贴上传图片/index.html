@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>分类：python - 枫叶</title>
+  <title>python实现Typora粘贴上传图片 - 枫叶</title>
+  
+    <meta name="keywords" content="python">
   
 
   
@@ -267,7 +267,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  focus' style="display: ;">
+        <div id="half" class='cover-wrapper post focus' style="display: ;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://i.loli.net/2021/04/23/KHpQMvRS4VqgW6a.jpg"></div>
           
@@ -300,120 +300,157 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-      
+
+
+  
+  <div class="article-meta" id="top">
     
     
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
     
-    <h2 class="article-title" >
-      <a href="/2020/08/10/python%E5%AE%9E%E7%8E%B0Typora%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/">
+      <h1 class="title">
         python实现Typora粘贴上传图片
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p><img src="https://i.loli.net/2021/04/26/Px7oWBsXTUOjL2a.jpg" class="lazyload" data-srcset="https://i.loli.net/2021/04/26/Px7oWBsXTUOjL2a.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Folio-Illustration-Ricardo-Bessa-Self_RBessa_1-Godafoss_web"></p>
-    
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/tools/">tools</a><span class="sep"></span><a class="category-link" href="/categories/tools/python/">python</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2020-08-10</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年8月10日</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/tools/">tools</a><span class="sep"></span><a class="category-link" href="/categories/tools/python/">python</a>
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <p><img src="https://i.loli.net/2021/04/26/Px7oWBsXTUOjL2a.jpg" class="lazyload" data-srcset="https://i.loli.net/2021/04/26/Px7oWBsXTUOjL2a.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Folio-Illustration-Ricardo-Bessa-Self_RBessa_1-Godafoss_web"></p>
+<span id="more"></span>
+
+<p>在用<code>Typora</code>编写文本时，实现图片粘贴后自动上传到<code>smms</code>图床并返回url</p>
+<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><p>注册登录自己的<a target="_blank" rel="noopener" href="https://sm.ms/">smms</a></p>
+<p>生成<code>Secret Token</code></p>
+<p><img src="https://i.loli.net/2021/04/24/Tbh3nSrZMOyWpg8.png" class="lazyload" data-srcset="https://i.loli.net/2021/04/24/Tbh3nSrZMOyWpg8.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210424152031380"></p>
+<p>将<code>Secret Token</code>替换脚本中的token值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    token = <span class="string">&#x27;xxxxxxxxxxxxxxxxxxxxx&#x27;</span></span><br><span class="line">    smms = SMMS(token)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(argv) &gt;= <span class="number">2</span>:</span><br><span class="line">        smms.upload_image(argv[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;[-] Example:&#123;&#125; &lt;file&gt;&#x27;</span>.<span class="built_in">format</span>(path.split(__file__)[-<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+
+<p>然后打开<code>Typora</code>偏好设置，按如下设置</p>
+<p><img src="https://i.loli.net/2021/04/24/fnulwJGWYK3t2QE.png" class="lazyload" data-srcset="https://i.loli.net/2021/04/24/fnulwJGWYK3t2QE.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210424151606268"></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>截图粘贴后会自动上传图片</p>
+<p><img src="https://i.loli.net/2021/04/24/4ySuGiLMq6KtHao.png" class="lazyload" data-srcset="https://i.loli.net/2021/04/24/4ySuGiLMq6KtHao.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210424151710419"></p>
+<p>成功上传返回smms图片地址</p>
+<p><img src="https://i.loli.net/2021/04/24/ACgjFKP6mpiOxea.png" class="lazyload" data-srcset="https://i.loli.net/2021/04/24/ACgjFKP6mpiOxea.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210424151744331"></p>
+<p>源码已上传<a target="_blank" rel="noopener" href="https://github/yui77111/smms">gayhub</a></p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2020/08/10/python%E5%AE%9E%E7%8E%B0Typora%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/'>
-            阅读全文
-          </a>
-        </div>
+      
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-26T11:41:53+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年4月26日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/06/18/droopy/">
-        droopy
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p><img src="https://i.loli.net/2021/04/25/1QASP89vEdfhnsi.jpg" class="lazyload" data-srcset="https://i.loli.net/2021/04/25/1QASP89vEdfhnsi.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Alex-Green-Folio-Art-Illustration-Radio-Times-Chris-Yates-988x1536"></p>
-    
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>python</p></a></div>
+
+
+        
+      
+        
+      
+    </div>
   </div>
+
+
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-06-18</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/tools/">tools</a><span class="sep"></span><a class="category-link" href="/categories/tools/python/">python</a>
-        
-      </div>
+  
+
+  
+    <div class="prev-next">
       
-        <div>
-          <a class='readmore' href='/2020/06/18/droopy/'>
-            阅读全文
-          </a>
-        </div>
+      
+        <a class='next' href='/2020/06/18/droopy/'>
+          <p class='title'>droopy<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+
+
+python写的一个文件上传功能的Web服务器
+源码
+
+我们用到的参数有-d指定上传路径、-a指定访问401验证账号密码
+
+
+思路遇到什么大project的时候，经常被要求要获取服务器的3...</p>
+        </a>
       
     </div>
   
+</article>
 
-</div>
 
-          </div>
-        
-      
-    
-  </section>
   
-    
+
   
 
 
-    
-  
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -421,123 +458,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://i.loli.net/2021/04/25/D6uhdAjafgXr1v8.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-          <p>秋风瑟瑟,落叶归零</p>
 
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="https://github.com/yui77111/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/cve/" href="/categories/cve/"
-            id="categoriescve"
-            ><div class='name'>cve</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/python/" href="/categories/python/"
-            id="categoriespython"
-            ><div class='name'>python</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/tools/" href="/categories/tools/"
-            id="categoriestools"
-            ><div class='name'>tools</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/tools/python/" href="/categories/tools/python/"
-            id="categoriestoolspython"
-            ><div class='name'>python</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE"><span class="toc-text">设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-text">测试</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/push/" style="font-size: 14px; color: #999">push</a> <a href="/tags/python/" style="font-size: 24px; color: #555">python</a> <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" style="font-size: 19px; color: #777">渗透测试</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
 		  
@@ -546,8 +488,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="python实现Typora粘贴上传图片";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
