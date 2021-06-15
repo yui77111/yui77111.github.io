@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>分类：tool - F</title>
+  <title>内网软件密码收集 - F</title>
+  
+    <meta name="keywords" content="内网">
   
 
   
@@ -269,7 +269,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  focus' style="display: ;">
+        <div id="half" class='cover-wrapper post focus' style="display: ;">
           
             <div id='cover-backstretch'></div>
           
@@ -302,74 +302,198 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        内网软件密码收集
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a><span class="sep"></span><a class="category-link" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/">内网渗透</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年5月18日</p>
+  </a>
+</div>
+
+          
         
           
         
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/06/18/droopy/">
-        droopy
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p><img src="https://i.loli.net/2021/04/25/1QASP89vEdfhnsi.jpg" class="lazyload" data-srcset="https://i.loli.net/2021/04/25/1QASP89vEdfhnsi.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Alex-Green-Folio-Art-Illustration-Radio-Times-Chris-Yates-988x1536"></p>
+      </div>
     
   </div>
+
+
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-06-18</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/python/">python</a><span class="sep"></span><a class="category-link" href="/categories/python/tool/">tool</a>
-        
-      </div>
+  
+  <p><img src="https://i.loli.net/2021/06/15/7nMtafZAFQ4NRX6.jpg" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/7nMtafZAFQ4NRX6.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Alex-Green-Folio-Art-Illustration-Essential-Wine-Guide-Greece"></p>
+<span id="more"></span>
+
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>内网密码收集也是内网信息收集中比较重要的环节，为后面进一步利用提供基础。收集密码，组合密码字典进行密码碰撞</p>
+<h4 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h4><h5 id="Navicat"><a href="#Navicat" class="headerlink" title="Navicat"></a>Navicat</h5><h6 id="一"><a href="#一" class="headerlink" title="一"></a>一</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reg query HKEY_CURRENT_USER\SOFTWARE\PremiumSoft\Navicat\Servers &#x2F;s &#x2F;v host </span><br><span class="line">reg query HKEY_CURRENT_USER\SOFTWARE\PremiumSoft\Navicat\Servers &#x2F;s &#x2F;v UserName </span><br><span class="line">reg query HKEY_CURRENT_USER\SOFTWARE\PremiumSoft\Navicat\Servers &#x2F;s &#x2F;v pwd</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/06/15/MQFram8vnZPVek6.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/MQFram8vnZPVek6.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="navicat-regedit"></p>
+<p>离线破解</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/HyperSine/how-does-navicat-encrypt-password/blob/master/python3/NavicatCipher.py">NavicatCipher.py</a></p>
+<p><img src="https://i.loli.net/2021/06/15/xGo5qw4uWTQdszI.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/xGo5qw4uWTQdszI.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="navicat-encrypt"></p>
+<h6 id="二"><a href="#二" class="headerlink" title="二"></a>二</h6><p><a target="_blank" rel="noopener" href="https://github.com/uknowsec/SharpDecryptPwd/raw/master/SharpDecryptPwd.exe">SharpDecryptPwd</a></p>
+<p><img src="https://i.loli.net/2021/06/15/Fv1SEyhKIfMNzAt.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/Fv1SEyhKIfMNzAt.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="SharpDecryptPwd"></p>
+<p><img src="https://i.loli.net/2021/06/15/gZm73VlSDyeFw54.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/gZm73VlSDyeFw54.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="navicat"></p>
+<h5 id="FileZilla"><a href="#FileZilla" class="headerlink" title="FileZilla"></a>FileZilla</h5><p>密码文件一般保存在c:\Users%username%\AppData\Roaming\</p>
+<h6 id="一-1"><a href="#一-1" class="headerlink" title="一"></a>一</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">findstr &#x2F;c:&quot;&lt;Host&gt;&quot; &#x2F;c:&quot;&lt;Port&gt;&quot; &#x2F;c:&quot;&lt;User&gt;&quot; &#x2F;c:&quot;&lt;Pass&quot; &#x2F;si c:\Users\%username%\AppData\Roaming\FileZilla\*.xml</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/06/15/Gu5HNXYOW14Lg93.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/Gu5HNXYOW14Lg93.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="filezilla"></p>
+<p>密码使用base64加密</p>
+<p><img src="https://i.loli.net/2021/06/15/LYyJpWZ4kQOjamu.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/LYyJpWZ4kQOjamu.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="base64解密密码"></p>
+<h6 id="二-1"><a href="#二-1" class="headerlink" title="二"></a>二</h6><p>SharpDecryptPwd</p>
+<p><img src="https://i.loli.net/2021/06/15/4B97otXSwDGEKpy.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/4B97otXSwDGEKpy.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="fiezilla_sharpdecryptpwd"></p>
+<h5 id="TeamViwer"><a href="#TeamViwer" class="headerlink" title="TeamViwer"></a>TeamViwer</h5><h6 id="一-2"><a href="#一-2" class="headerlink" title="一"></a>一</h6><p>SharpDecryptPwd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SharpDecryptPwd.exe -TeamViewer</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/06/15/1UYtcjR2xZqz3wI.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/1UYtcjR2xZqz3wI.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="TeamViwer"></p>
+<h5 id="Xshell"><a href="#Xshell" class="headerlink" title="Xshell"></a>Xshell</h5><p>密码文件一般保存在Xshell\Sessions</p>
+<h6 id="一-3"><a href="#一-3" class="headerlink" title="一"></a>一</h6><p>SharpDecryptPwd</p>
+<p>收集目标机sid</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whoami &#x2F;user</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/06/15/8eoaz6uOwXby7i3.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/8eoaz6uOwXby7i3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="whoami&amp;sid"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SharpDecryptPwd.exe -Xmangager -p Sessions目录路径 -s 目标机sid</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/06/15/CTJPeGIHxq9XL3s.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/CTJPeGIHxq9XL3s.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="xshell"></p>
+<h5 id="SecreCRT"><a href="#SecreCRT" class="headerlink" title="SecreCRT"></a>SecreCRT</h5><p>密码保存路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\%username%\AppData\Roaming\VanDyke\Config\Sessions    （安装版）</span><br><span class="line">SecureCRTSecureFX_hh_x86_7.0.0.326\Data\Settings\Config\Sessions  （绿色移动版）</span><br></pre></td></tr></table></figure>
+
+<h6 id="一-4"><a href="#一-4" class="headerlink" title="一"></a>一</h6><p>将\Sessions\目录下保存的每台服务器的ini文件拖到本地进行解密</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hustlibraco/Moye/blob/master/SecureCRTDecrypt.py">SecureCRTDecrypt</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 SecureCRTDecrypt.py 服务器ip.ini</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/06/15/GPyKljYHza5sqfx.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/GPyKljYHza5sqfx.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="securecrt"></p>
+<h6 id="二-2"><a href="#二-2" class="headerlink" title="二"></a>二</h6><p><a target="_blank" rel="noopener" href="https://github.com/HyperSine/how-does-SecureCRT-encrypt-password">SecureCRTCipher</a></p>
+<h5 id="foxmail"><a href="#foxmail" class="headerlink" title="foxmail"></a>foxmail</h5><p>各版本密码保存路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Foxmail version 7.2]</span><br><span class="line">C:\Program Files\Foxmail 7.2\Storage\&lt;account_emailaddress&gt;\Accounts\Account.rec0</span><br><span class="line">[Foxmail version 7.0]</span><br><span class="line">C:\Program Files\Foxmail 7.0\Data\AccCfg\Accounts.tdat</span><br><span class="line">[Foxmail version 6.x]</span><br><span class="line">C:\Program Files\Foxmail\mail\&lt;account_emailaddress&gt;\Account.stg</span><br></pre></td></tr></table></figure>
+
+<h6 id="一-5"><a href="#一-5" class="headerlink" title="一"></a>一</h6><p><a target="_blank" rel="noopener" href="https://securityxploded.com/foxmail-password-decryptor.php">Foxmail Password Decryptor</a></p>
+<p><img src="https://i.loli.net/2021/06/15/3fR6otdCeKjUGOk.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/3fR6otdCeKjUGOk.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="foxmailpasswordrecover"></p>
+<h5 id="VNC"><a href="#VNC" class="headerlink" title="VNC"></a>VNC</h5><p>vnc密文一般在注册表中可以查找到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3.x 在 HKEY_CURRENT_USER\Software\ORL\WinVNC3\Password &#x3D;&#x3D;&#x3D;windows 95</span><br><span class="line">3.x 在 HKEY_LOCAL_MACHINE\SOFTWARE\ORL\WinVNC3\Default\Password &#x3D;&#x3D;&#x3D;Win NT</span><br><span class="line">4.x 在 HKEY_LOCAL_MACHINE\SOFTWARE\RealVNC\WinVNC4 &#x3D;&#x3D;&#x3D;WinXP or Win2003</span><br><span class="line">5.x 在 HKEY_LOCAL_MACHINE\SOFTWARE\RealVNC\vncserver &#x3D;&#x3D;&#x3D;WinXP or Win2003</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/06/15/izwQKDyB4I91qhx.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/izwQKDyB4I91qhx.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210615155253958"></p>
+<h6 id="一-6"><a href="#一-6" class="headerlink" title="一"></a>一</h6><p><a target="_blank" rel="noopener" href="https://securityxploded.com/vnc-password-recovery.php">VNC Password Recovery</a></p>
+<p><img src="https://i.loli.net/2021/06/15/FGWdp62sVry7hPC.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/FGWdp62sVry7hPC.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="vncpasswordfind"></p>
+<h6 id="二-3"><a href="#二-3" class="headerlink" title="二"></a>二</h6><p><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8tools/blob/master/K8fuckVNC.rar">K8fuckVNC</a></p>
+<p><img src="https://i.loli.net/2021/06/15/JY3EyVm4GRbCMKp.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/JY3EyVm4GRbCMKp.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="vnc_k8gege"></p>
+<h5 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h5><h6 id="一-7"><a href="#一-7" class="headerlink" title="一"></a>一</h6><p><a target="_blank" rel="noopener" href="https://github.com/AlessandroZ/LaZagne">LaZagne</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lazagne.exe browsers</span><br></pre></td></tr></table></figure>
+
+<h6 id="二-4"><a href="#二-4" class="headerlink" title="二"></a>二</h6><p><a target="_blank" rel="noopener" href="https://securityxploded.com/all-in-one-password-decoder.php">All-in-one Password Decoder</a></p>
+<p><img src="https://i.loli.net/2021/06/15/Fq7U6HNjBwzWZ21.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/Fq7U6HNjBwzWZ21.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="brower-allinonepasswordrecoerypro"></p>
+<h4 id="end"><a href="#end" class="headerlink" title="end"></a>end</h4><p><a target="_blank" rel="noopener" href="https://securityxploded.com/password-recovery-tools.php">https://securityxploded.com/password-recovery-tools.php</a> 挺出名的，免费的密码找回工具，本地安装进行解密，<code>all-in-one</code>可以进行全软件密码勘察，方便快速收集各密码。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/AlessandroZ/LaZagne">LaZagne</a> 也可以使用 <code>LaZagne all</code>命令进行全软件密码勘察</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2020/06/18/droopy/'>
-            阅读全文
-          </a>
-        </div>
+      
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-15T16:41:29+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年6月15日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%86%85%E7%BD%91/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>内网</p></a></div>
+
+
+        
+      
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/05/10/%E5%9F%9F%E5%86%85DNSAdmins%E7%BB%84%E6%88%90%E5%91%98%E6%8F%90%E6%9D%83%E4%B8%BA%E5%9F%9F%E7%AE%A1/'>
+          <p class='title'>域内DNSAdmins组成员提权为域管<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+
+
+前言利用DNSAdmins组成员，通过dnscmd远程注入恶意dll，实现提权
+环境1234567891011121314151617181920域thomas.com域管thomas&#...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
   
 
 
-    
-  
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -377,143 +501,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://i.loli.net/2021/04/28/216QBFqc7OVsxAa.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-          <p>秋风瑟瑟,落叶归零</p>
 
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="https://github.com/yui77111/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/python/" href="/categories/python/"
-            id="categoriespython"
-            ><div class='name'>python</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/python/fun/" href="/categories/python/fun/"
-            id="categoriespythonfun"
-            ><div class='name'>fun</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/python/push/" href="/categories/python/push/"
-            id="categoriespythonpush"
-            ><div class='name'>push</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/python/tool/" href="/categories/python/tool/"
-            id="categoriespythontool"
-            ><div class='name'>tool</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/python/%E4%BE%BF%E6%8D%B7/" href="/categories/python/%E4%BE%BF%E6%8D%B7/"
-            id="categoriespythonE4BEBFE68DB7"
-            ><div class='name'>便捷</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"
-            id="categoriesE6B897E9808FE6B58BE8AF95"
-            ><div class='name'>渗透测试</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"
-            id="categoriesE6B897E9808FE6B58BE8AF95E58685E7BD91E6B897E9808F"
-            ><div class='name'>内网渗透</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E5%9F%9F%E6%B8%97%E9%80%8F/" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E5%9F%9F%E6%B8%97%E9%80%8F/"
-            id="categoriesE6B897E9808FE6B58BE8AF95E59F9FE6B897E9808F"
-            ><div class='name'>域渗透</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/%E6%95%B0%E6%8D%AE%E5%BA%93/"
-            id="categoriesE6B897E9808FE6B58BE8AF95E695B0E68DAEE5BA93"
-            ><div class='name'>数据库</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6"><span class="toc-text">软件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Navicat"><span class="toc-text">Navicat</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#FileZilla"><span class="toc-text">FileZilla</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#TeamViwer"><span class="toc-text">TeamViwer</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Xshell"><span class="toc-text">Xshell</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SecreCRT"><span class="toc-text">SecreCRT</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#foxmail"><span class="toc-text">foxmail</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#VNC"><span class="toc-text">VNC</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-text">浏览器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#end"><span class="toc-text">end</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/cve/" style="font-size: 14px; color: #999">cve</a> <a href="/tags/python/" style="font-size: 24px; color: #555">python</a> <a href="/tags/redis/" style="font-size: 14px; color: #999">redis</a> <a href="/tags/sql-server/" style="font-size: 14px; color: #999">sql server</a> <a href="/tags/wechat-push/" style="font-size: 14px; color: #999">wechat push</a> <a href="/tags/%E5%86%85%E7%BD%91/" style="font-size: 14px; color: #999">内网</a> <a href="/tags/%E5%9F%9F/" style="font-size: 19px; color: #777">域</a>
-    </div>
-  </section>
-
-
-  
 
   
 
@@ -527,8 +530,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="内网软件密码收集";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
