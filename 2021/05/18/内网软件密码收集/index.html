@@ -384,8 +384,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SharpDecryptPwd.exe -TeamViewer</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://i.loli.net/2021/06/15/1UYtcjR2xZqz3wI.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/1UYtcjR2xZqz3wI.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="TeamViwer"></p>
+<h5 id="向日葵"><a href="#向日葵" class="headerlink" title="向日葵"></a>向日葵</h5><p>向日葵默认配置文件路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">安装版：C:\Program Files\Oray\SunLogin\SunloginClient\config.ini</span><br><span class="line">便携版(绿色版)：C:\ProgramData\Oray\SunloginClient\config.ini</span><br></pre></td></tr></table></figure>
+
+<h6 id="一-3"><a href="#一-3" class="headerlink" title="一"></a>一</h6><p><a target="_blank" rel="noopener" href="https://github.com/wafinfo/Sunflower_get_Password">Sunflower_get_Password</a></p>
+<p><code>encry_pwd</code>密码密文，<code>fastcode</code>本机识别码(除头个英文字母)</p>
+<p><img src="https://i.loli.net/2021/06/18/xEUpolKMH3te6Di.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/18/xEUpolKMH3te6Di.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="sun"></p>
+<p>解密</p>
+<p><img src="https://i.loli.net/2021/06/18/NmiGeBpDlZkO8vU.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/18/NmiGeBpDlZkO8vU.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="sun_decrypt"></p>
 <h5 id="Xshell"><a href="#Xshell" class="headerlink" title="Xshell"></a>Xshell</h5><p>密码文件一般保存在Xshell\Sessions</p>
-<h6 id="一-3"><a href="#一-3" class="headerlink" title="一"></a>一</h6><p>SharpDecryptPwd</p>
+<h6 id="一-4"><a href="#一-4" class="headerlink" title="一"></a>一</h6><p>SharpDecryptPwd</p>
 <p>收集目标机sid</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whoami &#x2F;user</span><br></pre></td></tr></table></figure>
 
@@ -396,7 +404,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h5 id="SecreCRT"><a href="#SecreCRT" class="headerlink" title="SecreCRT"></a>SecreCRT</h5><p>密码保存路径</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\%username%\AppData\Roaming\VanDyke\Config\Sessions    （安装版）</span><br><span class="line">SecureCRTSecureFX_hh_x86_7.0.0.326\Data\Settings\Config\Sessions  （绿色移动版）</span><br></pre></td></tr></table></figure>
 
-<h6 id="一-4"><a href="#一-4" class="headerlink" title="一"></a>一</h6><p>将\Sessions\目录下保存的每台服务器的ini文件拖到本地进行解密</p>
+<h6 id="一-5"><a href="#一-5" class="headerlink" title="一"></a>一</h6><p>将\Sessions\目录下保存的每台服务器的ini文件拖到本地进行解密</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/hustlibraco/Moye/blob/master/SecureCRTDecrypt.py">SecureCRTDecrypt</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 SecureCRTDecrypt.py 服务器ip.ini</span><br></pre></td></tr></table></figure>
 
@@ -405,17 +413,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h5 id="foxmail"><a href="#foxmail" class="headerlink" title="foxmail"></a>foxmail</h5><p>各版本密码保存路径</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Foxmail version 7.2]</span><br><span class="line">C:\Program Files\Foxmail 7.2\Storage\&lt;account_emailaddress&gt;\Accounts\Account.rec0</span><br><span class="line">[Foxmail version 7.0]</span><br><span class="line">C:\Program Files\Foxmail 7.0\Data\AccCfg\Accounts.tdat</span><br><span class="line">[Foxmail version 6.x]</span><br><span class="line">C:\Program Files\Foxmail\mail\&lt;account_emailaddress&gt;\Account.stg</span><br></pre></td></tr></table></figure>
 
-<h6 id="一-5"><a href="#一-5" class="headerlink" title="一"></a>一</h6><p><a target="_blank" rel="noopener" href="https://securityxploded.com/foxmail-password-decryptor.php">Foxmail Password Decryptor</a></p>
+<h6 id="一-6"><a href="#一-6" class="headerlink" title="一"></a>一</h6><p><a target="_blank" rel="noopener" href="https://securityxploded.com/foxmail-password-decryptor.php">Foxmail Password Decryptor</a></p>
 <p><img src="https://i.loli.net/2021/06/15/3fR6otdCeKjUGOk.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/3fR6otdCeKjUGOk.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="foxmailpasswordrecover"></p>
 <h5 id="VNC"><a href="#VNC" class="headerlink" title="VNC"></a>VNC</h5><p>vnc密文一般在注册表中可以查找到</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3.x 在 HKEY_CURRENT_USER\Software\ORL\WinVNC3\Password &#x3D;&#x3D;&#x3D;windows 95</span><br><span class="line">3.x 在 HKEY_LOCAL_MACHINE\SOFTWARE\ORL\WinVNC3\Default\Password &#x3D;&#x3D;&#x3D;Win NT</span><br><span class="line">4.x 在 HKEY_LOCAL_MACHINE\SOFTWARE\RealVNC\WinVNC4 &#x3D;&#x3D;&#x3D;WinXP or Win2003</span><br><span class="line">5.x 在 HKEY_LOCAL_MACHINE\SOFTWARE\RealVNC\vncserver &#x3D;&#x3D;&#x3D;WinXP or Win2003</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://i.loli.net/2021/06/15/izwQKDyB4I91qhx.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/izwQKDyB4I91qhx.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210615155253958"></p>
-<h6 id="一-6"><a href="#一-6" class="headerlink" title="一"></a>一</h6><p><a target="_blank" rel="noopener" href="https://securityxploded.com/vnc-password-recovery.php">VNC Password Recovery</a></p>
+<h6 id="一-7"><a href="#一-7" class="headerlink" title="一"></a>一</h6><p><a target="_blank" rel="noopener" href="https://securityxploded.com/vnc-password-recovery.php">VNC Password Recovery</a></p>
 <p><img src="https://i.loli.net/2021/06/15/FGWdp62sVry7hPC.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/FGWdp62sVry7hPC.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="vncpasswordfind"></p>
 <h6 id="二-3"><a href="#二-3" class="headerlink" title="二"></a>二</h6><p><a target="_blank" rel="noopener" href="https://github.com/k8gege/K8tools/blob/master/K8fuckVNC.rar">K8fuckVNC</a></p>
 <p><img src="https://i.loli.net/2021/06/15/JY3EyVm4GRbCMKp.png" class="lazyload" data-srcset="https://i.loli.net/2021/06/15/JY3EyVm4GRbCMKp.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="vnc_k8gege"></p>
-<h5 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h5><h6 id="一-7"><a href="#一-7" class="headerlink" title="一"></a>一</h6><p><a target="_blank" rel="noopener" href="https://github.com/AlessandroZ/LaZagne">LaZagne</a></p>
+<h5 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h5><h6 id="一-8"><a href="#一-8" class="headerlink" title="一"></a>一</h6><p><a target="_blank" rel="noopener" href="https://github.com/AlessandroZ/LaZagne">LaZagne</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lazagne.exe browsers</span><br></pre></td></tr></table></figure>
 
 <h6 id="二-4"><a href="#二-4" class="headerlink" title="二"></a>二</h6><p><a target="_blank" rel="noopener" href="https://securityxploded.com/all-in-one-password-decoder.php">All-in-one Password Decoder</a></p>
@@ -441,10 +449,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-17T09:33:29+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-18T17:17:50+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年6月17日</p>
+    <p>更新于：2021年6月18日</p>
   </a>
 </div>
 
@@ -513,7 +521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6"><span class="toc-text">软件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Navicat"><span class="toc-text">Navicat</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#FileZilla"><span class="toc-text">FileZilla</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#TeamViwer"><span class="toc-text">TeamViwer</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Xshell"><span class="toc-text">Xshell</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SecreCRT"><span class="toc-text">SecreCRT</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#foxmail"><span class="toc-text">foxmail</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#VNC"><span class="toc-text">VNC</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-text">浏览器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#end"><span class="toc-text">end</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6"><span class="toc-text">软件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Navicat"><span class="toc-text">Navicat</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#FileZilla"><span class="toc-text">FileZilla</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#TeamViwer"><span class="toc-text">TeamViwer</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%91%E6%97%A5%E8%91%B5"><span class="toc-text">向日葵</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Xshell"><span class="toc-text">Xshell</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SecreCRT"><span class="toc-text">SecreCRT</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#foxmail"><span class="toc-text">foxmail</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#VNC"><span class="toc-text">VNC</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-text">浏览器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#end"><span class="toc-text">end</span></a></li></ol>
     </div>
   </section>
 
