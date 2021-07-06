@@ -371,7 +371,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>client得到了TGT后，继续向kerberos请求，希望获取访问server的权限。kerberos又得到了这个消息，这时候通过client消息中的TGT，判断出了client拥有了这个权限，给了client访问server的权限ticket。</li>
 <li>client得到ticket后，终于可以成功访问server。这个ticket只是针对这个server，其他server需要向TGS申请。</li>
 </ol>
-<h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">域</span><br><span class="line">thomas.com</span><br><span class="line">域管</span><br><span class="line">thomas&#x2F;administrator</span><br><span class="line">域成员</span><br><span class="line">thomas&#x2F;user01</span><br><span class="line"></span><br><span class="line">域控</span><br><span class="line">win-dc</span><br><span class="line">192.168.3.10</span><br><span class="line">windows server 2008r2</span><br><span class="line"></span><br><span class="line">内网机器</span><br><span class="line">win-user01</span><br><span class="line">192.168.3.100</span><br><span class="line">windows server 2008r2</span><br></pre></td></tr></table></figure>
+<h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">域</span><br><span class="line">thomas.com</span><br><span class="line">域管</span><br><span class="line">thomas&#x2F;administrator</span><br><span class="line">域成员</span><br><span class="line">thomas&#x2F;user01</span><br><span class="line"></span><br><span class="line">域控</span><br><span class="line">win-dc</span><br><span class="line">192.168.3.10</span><br><span class="line">windows server 2008r2</span><br><span class="line"></span><br><span class="line">域内机器</span><br><span class="line">win-user01</span><br><span class="line">192.168.3.100</span><br><span class="line">windows server 2008r2</span><br></pre></td></tr></table></figure>
 
 <h4 id="白银票据"><a href="#白银票据" class="headerlink" title="白银票据"></a>白银票据</h4><p>在Kerberos认证的第三步，Client带着ST和Authenticator3向Server上的某个服务进行请求，Server接收到Client的请求之后,通过自己的Master Key 解密ST,从而获得 Session Key。通过 Session Key 解密 Authenticator3,进而验证对方的身份,验证成功就让 Client 访问server上的指定服务了只需要知道Server用户的Hash就可以伪造出一个ST,且不会经过KDC,但是伪造的门票只对部分服务起作用。</p>
 <h5 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h5><ul>
@@ -470,10 +470,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-14T10:19:06+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-05T17:56:59+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年5月14日</p>
+    <p>更新于：2021年7月5日</p>
   </a>
 </div>
 
